@@ -1,0 +1,9 @@
+{
+    "[terraform]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "hashicorp.terraform"
+    },
+    "terraform.format": {
+      "ignoreExtensionsOnSave": [".tfsmurf"]
+    }
+  }
