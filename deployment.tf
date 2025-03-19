@@ -1,7 +1,7 @@
 resource "kubernetes_deployment" "app" {
   metadata {
     name      = "app-deployment"
-    namespace = "namespace"
+    namespace = kubernetes_namespace.app.metadata[0].name
   }
 
   spec {
@@ -51,7 +51,7 @@ resource "kubernetes_deployment" "app" {
 resource "kubernetes_service" "app" {
   metadata {
     name      = "app-service"
-    namespace = "namespace"
+    namespace = kubernetes_namespace.app.metadata[0].name
   }
 
   spec {

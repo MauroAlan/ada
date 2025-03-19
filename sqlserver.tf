@@ -38,3 +38,10 @@ resource "azurerm_key_vault_secret" "db_connection_string" {
   value        = "Server=tcp:${azurerm_mssql_server.sqlserver.fully_qualified_domain_name},1433;Initial Catalog=${azurerm_mssql_database.db.name};Persist Security Info=False;User ID=${azurerm_mssql_server.sqlserver.administrator_login};Password=${azurerm_mssql_server.sqlserver.administrator_login_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
   key_vault_id = azurerm_key_vault.kv.id
 }
+#Regra de firewall para o SQL SERVER nao barrar o IP
+resource "azurerm_mssql_firewall_rule" "allow_my_ip" {
+  name             = "VEJAMEUIP"
+  server_id        = azurerm_mssql_server.sqlserver.id
+  start_ip_address = "74.163.213.146"
+  end_ip_address   = "74.163.213.146"
+}

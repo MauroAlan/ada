@@ -17,6 +17,6 @@ provider "azurerm" {
   subscription_id = "b9879c18-e8da-4c85-a9de-06462b9cb8aa"
 }
 provider "kubernetes" {
-  config_path = "~/.kube/config" #Caminho para o arquivo na pasta kubeconfig
+  config_path = "~/.kube/config"
 }
 
